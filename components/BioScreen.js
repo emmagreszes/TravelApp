@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, Button } from 'react-native';
 
-function BioScreen({ route, navigation }) {
+export default function BioScreen({ route, navigation }) {
   /* 2. Get the param */
   const { name } = route.params;
   const { age } = route.params;
