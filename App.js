@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BioScreen from "./components/BioScreen"
 import EmmaBio from "./components/EmmaBio"
+import EzraBio from "./components/EzraBio"
 import JudithBio from "./components/JudithBio"
 
 const bios = [
@@ -37,6 +38,10 @@ function HomeScreen({ navigation }) {
         title="JudithBio"
         onPress={() => {navigation.navigate("JudithBio")}}
       />
+      <Button
+        title="EzraBio"
+        onPress={() => {navigation.navigate("EzraBio")}}
+      />
 
     </View>
   );
@@ -67,7 +72,8 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="BioScreen" component={BioScreen} />
         <Stack.Screen name="EmmaBio" component={EmmaBio} />
-        <Stack.Screen name="JudithBio" component={JudithBio} />
+        <Stack.Screen name="JudithBio" component={JudithBio}/>
+        <Stack.Screen name="EzraBio" component={EzraBio}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
