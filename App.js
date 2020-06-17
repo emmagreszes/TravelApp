@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BioScreen from "./components/BioScreen"
 import EmmaBio from "./components/EmmaBio"
+import JudithBio from "./components/JudithBio"
 
 const bios = [
   {name:"Ezra",age:21, bio:"/.."},
@@ -66,6 +67,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="BioScreen" component={BioScreen} />
         <Stack.Screen name="EmmaBio" component={EmmaBio} />
+        <Stack.Screen name="JudithBio" component={JudithBio} />
       </Stack.Navigator>
     </NavigationContainer>
   );
