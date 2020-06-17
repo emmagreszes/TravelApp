@@ -17,17 +17,6 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
-      <Button
-        title="Go to Bios"
-        onPress={() => {
-          /* 1. Navigate to the Details route with params */
-          navigation.navigate('BioScreen', {
-            name:"xz",
-            age:19,
-            bio:"dnejs"
-          });
-        }}
-      />
 
       <Button
         title="EmmaBio"
@@ -70,7 +59,6 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="BioScreen" component={BioScreen} />
         <Stack.Screen name="EmmaBio" component={EmmaBio} />
         <Stack.Screen name="JudithBio" component={JudithBio}/>
         <Stack.Screen name="EzraBio" component={EzraBio}/>

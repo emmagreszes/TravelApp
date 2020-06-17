@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { Text, View, Button, Image} from 'react-native';
+import { Text, View, Button, Image, StyleSheet} from 'react-native';
 import { emma } from '../assets/emma.jpg';
 
 export default function EmmaBio({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Emma Greszes</Text>
+      <Text style = {styles.text}>Emma Greszes</Text>
       <Image
-        style= {{ width: 305, height: 159}}
-        source=  {emma}
+        style= {{ width: 305, height: 300}}
+        source=  {require('../assets/emma.jpg')}
         alt = "emma.jpg"
       />
-      <Text> My name is Emma Greszes and I am an incoming Senior at Brandeis majoring
+      <Text style = {styles.text}> My name is Emma Greszes and I am an incoming Senior at Brandeis majoring
       in Computer Science and minoring in Architecture and Art History.
        I have lived in New York all my life. In my free time, you can probably
        find me working in the art
@@ -23,3 +23,10 @@ export default function EmmaBio({ route, navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 30,
+    textAlign: 'center',
+  },
+});
