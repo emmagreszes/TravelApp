@@ -8,8 +8,8 @@ export default function EmmaBio({ route, navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Emma Greszes</Text>
       <Image
-        style= {{ width: 305, height: 159}}
-        source=  {emma}
+        style= {{ width: 305, height: 300}}
+        source=  {require('../assets/emma.jpg')}
         alt = "emma.jpg"
       />
       <Text> My name is Emma Greszes and I am an incoming Senior at Brandeis majoring
