@@ -32,6 +32,11 @@ function HomeScreen({ navigation }) {
         onPress={() => {navigation.navigate('EmmaBio')}}
       />
 
+      <Button
+        title="JudithBio"
+        onPress={() => {navigation.navigate('JudithBio')}}
+      />
+
     </View>
   );
 }
