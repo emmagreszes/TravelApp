@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, Text, View, Button } from 'react-native';
+import { Image, Text, View, Button, Image} from 'react-native';
 import { judith } from '../assets/judith.jpeg';
 
 export default function JudithBio({ route, navigation }) {
