@@ -30,12 +30,12 @@ function HomeScreen({ navigation }) {
 
       <Button
         title="EmmaBio"
-        onPress={() => {navigation.navigate('EmmaBio')}}
+        onPress={() => {navigation.navigate("EmmaBio")}}
       />
 
       <Button
         title="JudithBio"
-        onPress={() => {navigation.navigate('JudithBio')}}
+        onPress={() => {navigation.navigate("JudithBio")}}
       />
 
     </View>
