@@ -1,5 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
 import { Text, View, Button, Image} from 'react-native';
+=======
+import { Image, Text, View, Button} from 'react-native';
+>>>>>>> ecde7b25a2cdc1ad4f4777c11436648b64fdc8d8
 import { judith } from '../assets/judith.jpeg';
 
 export default function JudithBio({ route, navigation }) {

@@ -62,6 +62,7 @@ export default function App() {
         <Stack.Screen name="EmmaBio" component={EmmaBio} />
         <Stack.Screen name="JudithBio" component={JudithBio}/>
         <Stack.Screen name="EzraBio" component={EzraBio}/>
+        <Stack.Screen name="JudithBio" component={JudithBio}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
