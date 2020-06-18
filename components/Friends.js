@@ -3,7 +3,7 @@ import { Text, View, Button, Image, StyleSheet } from 'react-native';
 import { ezra } from '../assets/ezra.jpg';
 
 
-export default function EzraBio({ route, navigation }) {
+export default function Friends({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -17,7 +17,7 @@ export default function EzraBio({ route, navigation }) {
       at Brandeis. I am from Silver Spring, Maryland. In my free time, you can find me singing,
       napping, playing video games, or reading! </Text>
 
-      <Button title="Go to About" onPress={() => navigation.navigate('About')} />
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );

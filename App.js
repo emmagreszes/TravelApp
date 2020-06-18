@@ -2,10 +2,14 @@ import * as React from 'react';
 import { Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import BioScreen from "./components/BioScreen"
+import About from "./components/About"
 import EmmaBio from "./components/EmmaBio"
 import EzraBio from "./components/EzraBio"
 import JudithBio from "./components/JudithBio"
+import Wishlist from "./components/Wishlist"
+import Explore from "./components/Explore"
+import MyLocations from "./components/MyLocations"
+import Friends from "./components/Friends"
 
 const bios = [
   {name:"Ezra",age:21, bio:"/.."},
@@ -19,17 +23,25 @@ function HomeScreen({ navigation }) {
       <Text>Home Screen</Text>
 
       <Button
-        title="EmmaBio"
-        onPress={() => {navigation.navigate("EmmaBio")}}
+        title="About"
+        onPress={() => {navigation.navigate("About")}}
       />
 
       <Button
-        title="JudithBio"
-        onPress={() => {navigation.navigate("JudithBio")}}
+        title="MyLocations"
+        onPress={() => {navigation.navigate("MyLocations")}}
       />
       <Button
-        title="EzraBio"
-        onPress={() => {navigation.navigate("EzraBio")}}
+        title="Wishlist"
+        onPress={() => {navigation.navigate("Wishlist")}}
+      />
+      <Button
+        title="Explore"
+        onPress={() => {navigation.navigate("Explore")}}
+      />
+      <Button
+        title="Friends"
+        onPress={() => {navigation.navigate("Friends")}}
       />
 
     </View>
@@ -59,9 +71,15 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="EzraBio" component={EzraBio} />
         <Stack.Screen name="EmmaBio" component={EmmaBio} />
-        <Stack.Screen name="JudithBio" component={JudithBio}/>
-        <Stack.Screen name="EzraBio" component={EzraBio}/>
+        <Stack.Screen name="JudithBio" component={JudithBio} />
+        <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Wishlist" component={Wishlist}/>
+        <Stack.Screen name="MyLocations" component={MyLocations}/>
+        <Stack.Screen name="Explore" component={Explore}/>
+        <Stack.Screen name="Friends" component={Friends}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
