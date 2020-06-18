@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { Text, View, Button, Image, StyleSheet } from 'react-native';
 import { ezra } from '../assets/ezra.jpg';
+import FriendList from '../containers/FriendList'
 
 
 export default function Friends({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Ezra's Bio</Text>
+      <FriendList/>
+      <Text>Ezras Bio</Text>
       <Image
         style= {{ width: 305, height: 300}}
         source=  {require('../assets/ezra.jpg')}
