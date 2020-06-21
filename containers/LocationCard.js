@@ -12,7 +12,7 @@ const LocationCard = ({ location }) => {
         style= {{ width: 305, height: 300}}
         resizeMode="cover"
         source={{ uri: location.img.src }}
-        
+
       />
       <Text>{location.City} {location.City}</Text>
     </View>

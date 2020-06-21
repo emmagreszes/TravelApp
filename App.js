@@ -10,6 +10,7 @@ import Wishlist from "./components/Wishlist"
 import Explore from "./components/Explore"
 import MyLocations from "./components/MyLocations"
 import Friends from "./components/Friends"
+import WishlistForm from "./components/forms/WishlistForm"
 
 const bios = [
   {name:"Ezra",age:21, bio:"/.."},
@@ -79,6 +80,7 @@ export default function App() {
         <Stack.Screen name="MyLocations" component={MyLocations}/>
         <Stack.Screen name="Explore" component={Explore}/>
         <Stack.Screen name="Friends" component={Friends}/>
+        <Stack.Screen name="WishlistForm" component={WishlistForm}/>
 
       </Stack.Navigator>
     </NavigationContainer>
