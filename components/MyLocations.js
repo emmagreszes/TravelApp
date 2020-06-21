@@ -1,22 +1,27 @@
-import * as React from 'react';
-import { Text, View, Button, Image, StyleSheet } from 'react-native';
-import { ezra } from '../assets/ezra.jpg';
+import React, { Component, useState } from 'react';
+import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
+import LocationList from '../containers/LocationList'
+import WishlistForm from './forms/WishlistForm'
 
 
 export default function MyLocations({ route, navigation }) {
-
+  const [text, setText] = useState('');
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Ezra's Bio</Text>
-      <Image
-        style= {{ width: 305, height: 300}}
-        source=  {require('../assets/ezra.jpg')}
-        alt = "ezra.jpg"
-      />
-      <Text style = {styles.text}>My name is Ezra Gershman. I am a CS and NEJS major. I am a rising senior
-      at Brandeis. I am from Silver Spring, Maryland. In my free time, you can find me singing,
-      napping, playing video games, or reading! </Text>
 
+      <LocationList/>
+
+
+      <TextInput
+        style={{height: 40}}
+        placeholder="Type here to translate!"
+        onChangeText={text => setText(text)}
+        defaultValue={text}
+      />
+      <Text style={{padding: 10, fontSize: 42}}>
+        {text.split(' ').map((word) => word && '🍕').join(' ')}
+      </Text>
+      <Button title="Add new location" onPress={() => navigation.navigate('WishlistForm')} />
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>

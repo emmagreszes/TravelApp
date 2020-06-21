@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
 import useStickyState from '../../useStickyState';
 import FormField from '../FormField';
+import { Card, ListItem, Icon } from 'react-native-elements'
 import { formData } from '../formData';
 
 export default function Wishlist({ route, navigation }) {
@@ -32,10 +33,6 @@ export default function Wishlist({ route, navigation }) {
       handleFormValueChange={handleFormValueChange}
     />
 
-      <Text style={styles.text}>City : {formValues.city}</Text>
-      <Text style={styles.text}>Country : {formValues.country}</Text>
-      <Text style={styles.text}>Image : {formValues.image}</Text>
-
       <TextInput
         style={{height: 40}}
         placeholder="Type here to translate!"
@@ -45,6 +42,19 @@ export default function Wishlist({ route, navigation }) {
       <Text style={{padding: 10, fontSize: 42}}>
         {text.split(' ').map((word) => word && '🍕').join(' ')}
       </Text>
+
+      <Card title= "Preview New Location">
+        {
+            <View>
+              <Image
+                style= {{ width: 305, height: 300}}
+                resizeMode="cover"
+                source={{ uri: formValues.image }}
+              />
+              <Text>{formValues.city} , {formValues.country}</Text>
+            </View>
+        }
+      </Card>
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>

@@ -14,7 +14,7 @@ const LocationCard = ({ location }) => {
         source={{ uri: location.img.src }}
 
       />
-      <Text>{location.City} {location.City}</Text>
+      <Text>{location.City}, {location.City}</Text>
     </View>
   );
 };

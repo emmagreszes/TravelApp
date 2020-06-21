@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from "./components/About"
@@ -11,6 +11,8 @@ import Explore from "./components/Explore"
 import MyLocations from "./components/MyLocations"
 import Friends from "./components/Friends"
 import WishlistForm from "./components/forms/WishlistForm"
+// import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+// import Icon from "react-native-vector-icons/FontAwesome";
 
 const bios = [
   {name:"Ezra",age:21, bio:"/.."},
@@ -55,7 +57,7 @@ function DetailsScreen({ route, navigation }) {
   const { name } = route.params;
   const { age } = route.params;
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View >
       <Text>Details Screen</Text>
       <Text>itemId: {JSON.stringify(name)}</Text>
       <Text>otherParam: {JSON.stringify(age)}</Text>
@@ -85,4 +87,67 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
+  const styles = StyleSheet.create({
+   backButton: {
+     height: 44,
+     width: 44,
+     justifyContent: 'center',
+     alignItems: 'center',
+   },
+  });
 }
+
+
+
+// const bottomTabNavigator = createBottomTabNavigator(
+//   {
+//     Home: {
+//       screen: Home,
+//       navigationOptions: {
+//         tabBarIcon: ({ tintColor }) => (
+//           <Icon name="home" size={25} color={tintColor} />
+//         )
+//       }
+//     },
+//     Wishlist: {
+//       screen: Wishlist,
+//       navigationOptions: {
+//         tabBarIcon: ({ tintColor }) => (
+//           <Icon name="comments" size={25} color={tintColor} />
+//         )
+//       }
+//     },
+//     Explore: {
+//       screen: Explore,
+//       navigationOptions: {
+//         tabBarIcon: ({ tintColor }) => (
+//           <Icon name="search" size={25} color={tintColor} />
+//         )
+//       }
+//     },
+//     Friends: {
+//       screen: Friends,
+//       navigationOptions: {
+//         tabBarIcon: ({ tintColor }) => (
+//           <Icon name="search" size={25} color={tintColor} />
+//         )
+//       }
+//     },
+//     MyLocations: {
+//       screen: MyLocations,
+//       navigationOptions: {
+//         tabBarIcon: ({ tintColor }) => (
+//           <Icon name="user" size={25} color={tintColor} />
+//         )
+//       }
+//     },
+//   },
+//   {
+//     initialRouteName: 'Home',
+//     tabBarOptions: {
+//       activeTintColor: '#eb6e3d'
+//     }
+//   }
+// );
+//
+// const AppConta

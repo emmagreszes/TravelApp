@@ -1,15 +1,11 @@
 import React from 'react';
 import LocationCard from './LocationCard'
 import {View} from 'react-native'
-import locations from '../assets/locations'
+import locations from '../assets/wishlist'
 
-const LocationList = () => {
+const WishList = () => {
   return(
-    <View style={{
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'space-around'
-    }}>
+    <View>
       {locations.map((u) =>
         <LocationCard location = {u}/>
       )
@@ -18,4 +14,4 @@ const LocationList = () => {
   );
 }
 
-export default LocationList;
+export default WishList;

@@ -7,15 +7,12 @@ export default function Explroe({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Ezra's Bio</Text>
+      <Text>https://www.youtube.com/watch?v=kaWkfpk3rbg</Text>
       <Image
-        style= {{ width: 305, height: 300}}
-        source=  {require('../assets/ezra.jpg')}
-        alt = "ezra.jpg"
+        style= {{ width: 1305, height: 800}}
+        source=  "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/SV_timelapse.gif"
+        alt = "map"
       />
-      <Text style = {styles.text}>My name is Ezra Gershman. I am a CS and NEJS major. I am a rising senior
-      at Brandeis. I am from Silver Spring, Maryland. In my free time, you can find me singing,
-      napping, playing video games, or reading! </Text>
 
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
