@@ -1,12 +1,12 @@
 import React from 'react';
 import LocationCard from './LocationCard'
 import {View} from 'react-native'
-import locations from '../assets/wishlist'
+import wishlist from '../assets/wishlist'
 
 const WishList = () => {
   return(
     <View>
-      {locations.map((u) =>
+      {wishlist.map((u) =>
         <LocationCard location = {u}/>
       )
       }

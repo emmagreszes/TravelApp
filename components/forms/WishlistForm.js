@@ -1,16 +1,47 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
 import useStickyState from '../../useStickyState';
 import FormField from '../FormField';
 import { Card, ListItem, Icon } from 'react-native-elements'
 import { formData } from '../formData';
+import { useAsyncStorage } from '@react-native-community/async-storage';
+import wishlist from '../../assets/wishlist';
 
 export default function Wishlist({ route, navigation }) {
-  const [text, setText] = useStickyState('');
-  const [formValues, handleFormValueChange, setFormValues] = formData({
-    city: '',
-    country: ''
-  })
+  const [text, setText] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
+  const [image, setImage] = useState('');
+  const [wishlist, setWishlist] = useState('wishlist');
+  const { getItem, setItem } = useAsyncStorage('@wishlist');
+
+  const handleFormValueChange = (key, value) => {
+    if (key == 'city') {
+      setCity(value)
+    } else if (key == 'country') {
+      setCountry(value)
+    }
+  }
+
+  const handleSubmit = () => {
+    const obj = {City:city, Country:country, img:{src:image, alt:"picture"}}
+    writeItemToStorage(wishlist.concat(obj))
+  }
+
+  const readItemFromStorage = async () => {
+    const item = await getItem();
+    setWishlist(JSON.parse(item));
+  };
+
+  const writeItemToStorage = async newValue => {
+    await setItem(JSON.stringify(newValue));
+    setWishlist(newValue);
+  };
+
+  useEffect(() => {
+    readItemFromStorage();
+  }, []);
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
@@ -32,6 +63,7 @@ export default function Wishlist({ route, navigation }) {
       placeholder='Image URL'
       handleFormValueChange={handleFormValueChange}
     />
+    <Button title = "Submit" onPress={handleSubmit}/>
 
       <TextInput
         style={{height: 40}}
@@ -40,7 +72,7 @@ export default function Wishlist({ route, navigation }) {
         defaultValue={text}
       />
       <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🍕').join(' ')}
+        {text.split(' ').map((word) => word && '🌍').join(' ')}
       </Text>
 
       <Card title= "Preview New Location">
@@ -49,9 +81,9 @@ export default function Wishlist({ route, navigation }) {
               <Image
                 style= {{ width: 305, height: 300}}
                 resizeMode="cover"
-                source={{ uri: formValues.image }}
+                source={{ uri: image }}
               />
-              <Text style = {styles.text}>{formValues.city} , {formValues.country}</Text>
+              <Text style = {styles.text}>{city} ,{country}</Text>
             </View>
         }
       </Card>
