@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from "./components/About"
@@ -22,35 +22,50 @@ const bios = [
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding:'200'}}>
+      <Text style = {styles.text}>Home Screen</Text>
+      <TouchableOpacity style = {styles.button}>
       <Button
         title="About"
+        color="#DB9B8F"
         onPress={() => {navigation.navigate("About")}}
       />
 
       <Button
         title="MyLocations"
+        color="#57A892"
         onPress={() => {navigation.navigate("MyLocations")}}
       />
       <Button
         title="Wishlist"
+        color="#DB9B8F"
         onPress={() => {navigation.navigate("Wishlist")}}
       />
       <Button
         title="Explore"
+        color="#57A892"
         onPress={() => {navigation.navigate("Explore")}}
       />
       <Button
         title="Friends"
+        color="#DB9B8F"
         onPress={() => {navigation.navigate("Friends")}}
       />
-
+      </TouchableOpacity>
     </View>
   );
 }
 
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 60,
+    textAlign: 'center',
+  },
+  button: {
+    height: 200,
+    width: 800,
+  }
+});
 
 function DetailsScreen({ route, navigation }) {
   /* 2. Get the param */

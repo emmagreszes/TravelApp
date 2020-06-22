@@ -8,9 +8,9 @@ export default function Wishlist({ route, navigation }) {
   const [text, setText] = useState('');
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button title="Add new destination" onPress={() => navigation.navigate('WishlistForm')} />
 
       <WishList/>
-
 
       <TextInput
         style={{height: 40}}
@@ -21,7 +21,6 @@ export default function Wishlist({ route, navigation }) {
       <Text style={{padding: 10, fontSize: 42}}>
         {text.split(' ').map((word) => word && '🍕').join(' ')}
       </Text>
-      <Button title="Add new destination" onPress={() => navigation.navigate('WishlistForm')} />
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>

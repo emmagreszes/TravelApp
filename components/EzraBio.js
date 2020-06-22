@@ -7,7 +7,7 @@ export default function EzraBio({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Ezra's Bio</Text>
+      <Text>Ezras Bio</Text>
       <Image
         style= {{ width: 305, height: 300}}
         source=  {require('../assets/ezra.jpg')}

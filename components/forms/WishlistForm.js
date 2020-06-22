@@ -51,7 +51,7 @@ export default function Wishlist({ route, navigation }) {
                 resizeMode="cover"
                 source={{ uri: formValues.image }}
               />
-              <Text>{formValues.city} , {formValues.country}</Text>
+              <Text style = {styles.text}>{formValues.city} , {formValues.country}</Text>
             </View>
         }
       </Card>
