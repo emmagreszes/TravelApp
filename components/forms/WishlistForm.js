@@ -4,22 +4,23 @@ import useStickyState from '../../useStickyState';
 import FormField from '../FormField';
 import { Card, ListItem, Icon } from 'react-native-elements'
 import { formData } from '../formData';
-import { useAsyncStorage } from '@react-native-community/async-storage';
-import wishlist from '../../assets/wishlist';
+// import wishlist from '../../assets/wishlist';
 
-export default function Wishlist({ route, navigation }) {
+export default function WishlistForm({ route, navigation }) {
   const [text, setText] = useState('');
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [image, setImage] = useState('');
-  const [wishlist, setWishlist] = useState('wishlist');
-  const { getItem, setItem } = useAsyncStorage('@wishlist');
+  const wishlist = route.params.wishlist;
+  const writeItemToStorage = route.params.writeItemToStorage;
 
   const handleFormValueChange = (key, value) => {
     if (key == 'city') {
       setCity(value)
     } else if (key == 'country') {
       setCountry(value)
+    } else if (key == 'image') {
+      setImage(value)
     }
   }
 
@@ -27,20 +28,6 @@ export default function Wishlist({ route, navigation }) {
     const obj = {City:city, Country:country, img:{src:image, alt:"picture"}}
     writeItemToStorage(wishlist.concat(obj))
   }
-
-  const readItemFromStorage = async () => {
-    const item = await getItem();
-    setWishlist(JSON.parse(item));
-  };
-
-  const writeItemToStorage = async newValue => {
-    await setItem(JSON.stringify(newValue));
-    setWishlist(newValue);
-  };
-
-  useEffect(() => {
-    readItemFromStorage();
-  }, []);
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
