@@ -10,7 +10,7 @@ export default function Wishlist({ route, navigation }) {
 
   const readItemFromStorage = async () => {
     const item = await getItem();
-    setWishlist(JSON.parse(item));
+    setWishlist(JSON.parse(item)||wishlist);
   };
 
   const writeItemToStorage = async newValue => {
@@ -29,7 +29,7 @@ export default function Wishlist({ route, navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button title="Add new destination" onPress={() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
 
-      <Wishes wishlist = {wishlist}/>
+      <Wishes wishlist = {wishlist || []}/>
 
       <TextInput
         style={{height: 40}}

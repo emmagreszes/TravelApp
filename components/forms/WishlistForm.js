@@ -4,6 +4,7 @@ import useStickyState from '../../useStickyState';
 import FormField from '../FormField';
 import { Card, ListItem, Icon } from 'react-native-elements'
 import { formData } from '../formData';
+import wishPage from '../Wishlist'
 // import wishlist from '../../assets/wishlist';
 
 export default function WishlistForm({ route, navigation }) {
@@ -27,6 +28,7 @@ export default function WishlistForm({ route, navigation }) {
   const handleSubmit = () => {
     const obj = {City:city, Country:country, img:{src:image, alt:"picture"}}
     writeItemToStorage(wishlist.concat(obj))
+    navigation.goBack()
   }
 
   return (
