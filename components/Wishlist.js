@@ -29,7 +29,7 @@ export default function Wishlist({ route, navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button title="Add new destination" onPress={() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
 
-      <Wishes wishlist = {wishlist || []}/>
+      <Wishes wishlist = {wishlist||[]}/>
 
       <TextInput
         style={{height: 40}}
