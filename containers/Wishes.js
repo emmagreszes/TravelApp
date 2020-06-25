@@ -10,7 +10,6 @@ const Wishes = ({wishlist}) => {
           <LocationCard location = {u}/>
         )
       }
-
     </View>
   );
 }
