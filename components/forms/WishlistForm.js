@@ -64,7 +64,7 @@ export default function WishlistForm({ route, navigation }) {
         {text.split(' ').map((word) => word && '🌍').join(' ')}
       </Text>
 
-      <Card title= "Preview New Location">
+      <Card containerStyle= {{padding:8}}>
         {
             <View>
               <Image

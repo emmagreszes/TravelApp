@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
+import {Icon} from 'react-native-elements';
 import Wishes from '../containers/Wishes'
 import WishlistForm from './forms/WishlistForm'
 import { useAsyncStorage } from '@react-native-community/async-storage';
@@ -27,8 +28,7 @@ export default function Wishlist({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Add new destination" onPress={() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
-
+      <Icon name = "plus-a" type = "fontisto" color = "#517fa4" onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
       <Wishes wishlist = {wishlist||[]}/>
 
       <TextInput
