@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Image,Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
+import {Icon} from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from "./components/About"
@@ -10,6 +11,8 @@ import Wishlist from "./components/Wishlist"
 import Explore from "./components/Explore"
 import MyLocations from "./components/MyLocations"
 import WishlistForm from "./components/forms/WishlistForm"
+import MyLocationsForm from "./components/forms/MyLocationsForm"
+
 
 // import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 // import Icon from "react-native-vector-icons/FontAwesome";
@@ -19,6 +22,14 @@ function HomeScreen({ navigation }) {
   return (
 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding:'200'}}>
+    <Image
+      style= {{ width: 305, height: 300}}
+      source=  {require('./media/fullLogo.png')}
+      alt = "logo"
+    />
+
+
+      <Icon name = "plane" type = "fontisto" color = "#57A892"/>
       <TouchableOpacity style = {styles.button}>
       <Button
         title="About"
@@ -80,6 +91,8 @@ export default function App() {
         <Stack.Screen name="MyLocations" component={MyLocations}/>
         <Stack.Screen name="Explore" component={Explore}/>
         <Stack.Screen name="WishlistForm" component={WishlistForm}/>
+        <Stack.Screen name="MyLocationsForm" component={MyLocationsForm}/>
+
 
       </Stack.Navigator>
     </NavigationContainer>

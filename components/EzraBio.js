@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text, View, Button, Image, StyleSheet } from 'react-native';
+import {Icon} from 'react-native-elements';
 import { ezra } from '../assets/ezra.jpg';
 
 
@@ -17,8 +18,12 @@ export default function EzraBio({ route, navigation }) {
       at Brandeis. I am from Silver Spring, Maryland. In my free time, you can find me singing,
       napping, playing video games, or reading! </Text>
 
-      <Button title="Go to About" onPress={() => navigation.navigate('About')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
+      <Image
+        style= {{ width: 105, height: 50, position: 'absolute', bottom:0}}
+        source=  {require('../media/smallLogo.png')}
+        alt = "judith.jpg"
+      />
     </View>
   );
 }

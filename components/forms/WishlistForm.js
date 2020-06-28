@@ -52,7 +52,8 @@ export default function WishlistForm({ route, navigation }) {
       placeholder='Image URL'
       handleFormValueChange={handleFormValueChange}
     />
-    <Button title = "Submit" onPress={handleSubmit}/>
+    <Icon raised name = "check" type = "fontisto" color = "#57A892" onPress={handleSubmit} />
+
 
       <TextInput
         style={{height: 40}}
@@ -76,8 +77,11 @@ export default function WishlistForm({ route, navigation }) {
             </View>
         }
       </Card>
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Icon raised name = "home" type = "fontisto" color = "#517fa4" onPress={() => navigation.navigate('Home')} />
+      <Image
+        style= {{ width: 105, height: 50, bottom:0}}
+        source=  {require('../../media/smallLogo.png')}
+      />
     </View>
   );
 }

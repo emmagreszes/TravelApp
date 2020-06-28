@@ -1,29 +1,46 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
+import {Icon} from 'react-native-elements';
 import LocationList from '../containers/LocationList'
-import WishlistForm from './forms/WishlistForm'
-
+import MyLocationsForm from './forms/MyLocationsForm'
+import { useAsyncStorage } from '@react-native-community/async-storage';
+import initialLocations from '../assets/locations';
 
 export default function MyLocations({ route, navigation }) {
   const [text, setText] = useState('');
+
+  const readItemFromStorage = async () => {
+    const item = await getItem();
+    setMyLocations(JSON.parse(item)||myLocations);
+  };
+
+  const writeItemToStorage = async newValue => {
+    await setItem(JSON.stringify(newValue));
+    setMyLocations(newValue);
+  };
+
+  useEffect(() => {
+    readItemFromStorage();
+  }, []);
+
+  const [myLocations,setMyLocations] = useState(initialLocations);
+  const {getItem, setItem} = useAsyncStorage('@myLocations');
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Icon raised name = "plus-a" type = "fontisto" color = "#57A892" onPress = {() => navigation.navigate('MyLocationsForm', {writeItemToStorage: writeItemToStorage, myLocations: myLocations})} />
 
-      <LocationList/>
 
 
-      <TextInput
-        style={{height: 40}}
-        placeholder="Type here to translate!"
-        onChangeText={text => setText(text)}
-        defaultValue={text}
+
+      <LocationList myLocations = {myLocations ||[]}/>
+
+      <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
+      <Image
+        style= {{ width: 105, height: 50,bottom:0}}
+        source=  {require('../media/smallLogo.png')}
+        alt = "judith.jpg"
       />
-      <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🍕').join(' ')}
-      </Text>
-      <Button title="Add new location" onPress={() => navigation.navigate('WishlistForm')} />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
 }

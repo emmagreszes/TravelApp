@@ -1,21 +1,17 @@
 import React from 'react';
 import LocationCard from './LocationCard'
 import {View} from 'react-native'
-import locations from '../assets/locations'
+//import locations from '../assets/locations'
 
-const LocationList = () => {
+const LocationList = ({myLocations}) => {
   return(
-    <View style={{
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'space-around'
-    }}>
-      {locations.map((u) =>
-        <LocationCard location = {u}/>
-      )
+    <View>
+        {myLocations.map((u) =>
+          <LocationCard location = {u}/>
+        )
       }
     </View>
   );
-}
+}  
 
 export default LocationList;

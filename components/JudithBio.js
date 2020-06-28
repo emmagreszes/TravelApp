@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text, View, Button, Image} from 'react-native';
+import {Icon} from 'react-native-elements';
 import { judith } from '../assets/judith.jpeg';
 
 export default function JudithBio({ route, navigation }) {
@@ -16,8 +17,12 @@ export default function JudithBio({ route, navigation }) {
       double major at Brandeis. I was born in Hong Kong, but have spent most of my life in the switch
       San Francisco Bay Area. In my free time I love running, reading, traveling, and playing the ukulele.</Text>
 
-      <Button title="Go to About" onPress={() => navigation.navigate('About')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
+      <Image
+        style= {{ width: 105, height: 50, position: 'absolute', bottom:0}}
+        source=  {require('../media/smallLogo.png')}
+        alt = "judith.jpg"
+      />
     </View>
   );
 }

@@ -28,20 +28,16 @@ export default function Wishlist({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Icon name = "plus-a" type = "fontisto" color = "#517fa4" onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
+      <Icon raised name = "plus-a" type = "fontisto" color = "#57A892" onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
+
       <Wishes wishlist = {wishlist||[]}/>
 
-      <TextInput
-        style={{height: 40}}
-        placeholder="Type here to translate!"
-        onChangeText={text => setText(text)}
-        defaultValue={text}
-      />
-      <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🍕').join(' ')}
-      </Text>
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+    <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
+    <Image
+      style= {{ width: 105, height: 50,  bottom:0}}
+      source=  {require('../media/smallLogo.png')}
+      alt = "judith.jpg"
+    />
     </View>
   );
 }
