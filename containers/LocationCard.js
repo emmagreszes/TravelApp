@@ -7,14 +7,6 @@ import FlipCard from 'react-native-flip-card'
 const LocationCard = ({ location }) => {
   return (
 
-//    <View key= {location.id}>
-      // <Image
-      //   style= {{ width: 305, height: 300}}
-      //   resizeMode="cover"
-      //   source={{ uri: location.img.src }}
-      //
-      // />
-      // <Text>{location.City}, {location.Country}</Text>
       <FlipCard
         friction={6}
         perspective={1000}
@@ -53,7 +45,9 @@ const styles = StyleSheet.create({
   text: {
     justifyContent: 'center',
     fontSize: 12,
-    padding: 12
+    padding: 12,
+    fontFamily: 'Georgia',
+    fontWeight: 'bold'
 
   },
   card: {
