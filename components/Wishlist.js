@@ -25,6 +25,7 @@ export default function Wishlist({ route, navigation }) {
 
   const [wishlist,setWishlist] = useState(initialWishlist);
   const {getItem, setItem} = useAsyncStorage('@wishlist');
+  //writeItemToStorage(initialWishlist)
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
