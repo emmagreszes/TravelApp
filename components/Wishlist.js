@@ -27,11 +27,15 @@ export default function Wishlist({ route, navigation }) {
   const {getItem, setItem} = useAsyncStorage('@wishlist');
   //writeItemToStorage(initialWishlist)
 
+  const removeItemValue = (key) => {
+        writeItemToStorage(wishlist.filter(x => x.City != key))
+  }
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Icon raised name = "plus-a" type = "fontisto" color = "#57A892" onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
 
-      <Wishes wishlist = {wishlist||[]}/>
+      <Wishes wishlist = {wishlist||[]} removeItemValue = {removeItemValue}/>
 
     <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
     <Image

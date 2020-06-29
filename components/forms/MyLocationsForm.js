@@ -12,6 +12,7 @@ export default function MyLocationsForm({ route, navigation }) {
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [image, setImage] = useState('');
+  const [notes, setNotes] = useState('');
   const myLocations = route.params.myLocations;
   const writeItemToStorage = route.params.writeItemToStorage;
 
@@ -22,11 +23,13 @@ export default function MyLocationsForm({ route, navigation }) {
       setCountry(value)
     } else if (key == 'image') {
       setImage(value)
+    } else if (key == 'notes') {
+      setNotes(value)
     }
   }
 
   const handleSubmit = () => {
-    const obj = {City:city, Country:country, img:{src:image, alt:"picture"}}
+    const obj = {City:city, Country:country, img:{src:image, alt:"picture"}, Notes:notes}
     writeItemToStorage(myLocations.concat(obj))
     navigation.goBack()
   }
@@ -44,6 +47,12 @@ export default function MyLocationsForm({ route, navigation }) {
       label='Country'
       formKey='country'
       placeholder='country'
+      handleFormValueChange={handleFormValueChange}
+    />
+    <FormField
+      label='Notes'
+      formKey='notes'
+      placeholder='Things to do!'
       handleFormValueChange={handleFormValueChange}
     />
     <FormField

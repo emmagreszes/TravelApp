@@ -12,6 +12,7 @@ export default function WishlistForm({ route, navigation }) {
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [image, setImage] = useState('');
+  const [notes, setNotes] = useState('');
   const wishlist = route.params.wishlist;
   const writeItemToStorage = route.params.writeItemToStorage;
 
@@ -22,11 +23,13 @@ export default function WishlistForm({ route, navigation }) {
       setCountry(value)
     } else if (key == 'image') {
       setImage(value)
+    } else if (key == 'notes') {
+      setNotes(value)
     }
   }
 
   const handleSubmit = () => {
-    const obj = {City:city, Country:country, img:{src:image, alt:"picture"}}
+    const obj = {City:city, Country:country, img:{src:image, alt:"picture"}, Notes:notes}
     writeItemToStorage(wishlist.concat(obj))
     navigation.goBack()
   }
@@ -50,6 +53,12 @@ export default function WishlistForm({ route, navigation }) {
       label='Image URL'
       formKey='image'
       placeholder='Image URL'
+      handleFormValueChange={handleFormValueChange}
+    />
+    <FormField
+      label='notes'
+      formKey='notes'
+      placeholder='Things to do!'
       handleFormValueChange={handleFormValueChange}
     />
     <Icon raised name = "check" type = "fontisto" color = "#57A892" onPress={handleSubmit} />

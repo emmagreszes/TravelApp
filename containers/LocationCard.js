@@ -25,16 +25,13 @@ const LocationCard = ({ location, removeItemValue }) => {
             resizeMode="cover"
             source={{ uri: location.img?.src }}
           />
-          <Text style = {styles.text}>{location.City}, {location.Country}</Text>
+          <Text style = {styles.text}>{location.City}, {location.Country} </Text>
         </View>
         {/* Back Side */}
         <View style = {styles.back}>
-          <Text>Things to Do: </Text>
-          <Text> -Go swimming </Text>
-          <Text> -Drink! </Text>
-          <Text> -See Rome </Text>
-          <Text> -Get married! </Text>
-          <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#517fa4" onPress ={()=> removeItemValue(location.City)} />
+          <Text style = {styles.text}>Things to Do: </Text>
+          <Text style = {styles.text}> {location.Notes} </Text>
+          <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#57A892" onPress ={()=> removeItemValue(location.City)} />
 
         </View>
 
@@ -49,7 +46,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     padding: 12,
     fontFamily: 'Georgia',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#ae6e5f'
 
   },
   card: {
