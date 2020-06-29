@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, Image } from 'react-native'
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import FlipCard from 'react-native-flip-card'
+import { useAsyncStorage } from '@react-native-community/async-storage';
 
-const LocationCard = ({ location }) => {
+
+const LocationCard = ({ location, removeItemValue }) => {
   return (
 
       <FlipCard
@@ -21,7 +23,7 @@ const LocationCard = ({ location }) => {
           <Image
             style= {styles.image}
             resizeMode="cover"
-            source={{ uri: location.img.src }}
+            source={{ uri: location.img?.src }}
           />
           <Text style = {styles.text}>{location.City}, {location.Country}</Text>
         </View>
@@ -32,7 +34,7 @@ const LocationCard = ({ location }) => {
           <Text> -Drink! </Text>
           <Text> -See Rome </Text>
           <Text> -Get married! </Text>
-          <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#517fa4" onPress = "DELETE" />
+          <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#517fa4" onPress ={()=> removeItemValue(location.City)} />
 
         </View>
 

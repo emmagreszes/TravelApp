@@ -26,14 +26,15 @@ export default function MyLocations({ route, navigation }) {
   const [myLocations,setMyLocations] = useState(initialLocations);
   const {getItem, setItem} = useAsyncStorage('@myLocations');
 
+  const removeItemValue = (key) => {
+        writeItemToStorage(myLocations.filter(x => x.City != key))
+  }
+ 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Icon raised name = "plus-a" type = "fontisto" color = "#57A892" onPress = {() => navigation.navigate('MyLocationsForm', {writeItemToStorage: writeItemToStorage, myLocations: myLocations})} />
 
-
-
-
-      <LocationList myLocations = {myLocations ||[]}/>
+      <LocationList myLocations = {myLocations ||[]} removeItemValue = {removeItemValue}/>
 
       <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
       <Image
