@@ -1,11 +1,11 @@
 import React from 'react';
 import LocationCard from './LocationCard'
-import {View} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 
 const Wishes = ({wishlist, removeItemValue}) => {
   return(
 
-    <View>
+    <View style = {styles.cards}>
         {wishlist.map((u) =>
           <LocationCard location = {u} removeItemValue={removeItemValue}/>
         )
@@ -15,3 +15,11 @@ const Wishes = ({wishlist, removeItemValue}) => {
 }
 
 export default Wishes;
+
+const styles = StyleSheet.create({
+  cards: {
+    flex: 1,
+    //flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+})

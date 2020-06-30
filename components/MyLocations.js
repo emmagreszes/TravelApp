@@ -24,7 +24,7 @@ export default function MyLocations({ route, navigation }) {
   }, []);
 
   const [myLocations,setMyLocations] = useState(initialLocations);
-  const {getItem, setItem} = useAsyncStorage('@myLocations');
+  const {getItem, setItem} = useAsyncStorage('@myLocations20200630');
 
   const removeItemValue = (key) => {
         writeItemToStorage(myLocations.filter(x => x.City != key))

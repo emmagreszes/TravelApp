@@ -31,6 +31,7 @@ export default function WishlistForm({ route, navigation }) {
   const handleSubmit = () => {
     const obj = {City:city, Country:country, img:{src:image, alt:"picture"}, Notes:notes}
     writeItemToStorage(wishlist.concat(obj))
+    console.log(JSON.stringify(wishlist.concat(obj),null,2))
     navigation.goBack()
   }
 
@@ -86,7 +87,7 @@ export default function WishlistForm({ route, navigation }) {
             </View>
         }
       </Card>
-      <Icon raised name = "home" type = "fontisto" color = "#517fa4" onPress={() => navigation.navigate('Home')} />
+      <Icon raised name = "home" type = "fontisto" color = "#57A892" onPress={() => navigation.navigate('Home')} />
       <Image
         style= {{ width: 105, height: 50, bottom:0}}
         source=  {require('../../media/smallLogo.png')}
