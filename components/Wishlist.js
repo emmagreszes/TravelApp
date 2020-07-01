@@ -24,7 +24,7 @@ export default function Wishlist({ route, navigation }) {
   }, []);
 
   const [wishlist,setWishlist] = useState(initialWishlist);
-  const {getItem, setItem} = useAsyncStorage('@wishlist20200630');
+  const {getItem, setItem} = useAsyncStorage('@wishlist20200701');
   //writeItemToStorage(initialWishlist)
 
   const removeItemValue = (key) => {
